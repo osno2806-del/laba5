@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <vector>
@@ -37,15 +37,18 @@ void func2(std::vector <std::string> lines)
     }
 
 }
-void func3()
-{
+void func3(std::vector <std::string> lines)  
+{    ofstream out("out.txt")
+    for (int i=0; i<lines.size(); i++) {
+        out<<lines[i]<<std::endl; //вывод строк
+    }
 
 }
 int main()
 {
     std::vector<std::string> file_po_strocam = func1();
     func2(file_po_strocam);
-    func3();
+    func3(file_po_strocam);
     std::cout << "Hello World!" << std::endl;
     return 0;
 }
