@@ -2,17 +2,17 @@
 #include <string>
 #include <fstream>
 #include <vector>
-void func1()
+std::vector <std::string> func1()
 {
+    std::vector <std::string> file_po_strocam;
     std::ifstream file("C:/Users/User/Documents/C++/laba5/pchelci.txt");
     if (!file)
     {
         std::cout<< "didnt open" << std::endl;
-
     }
     else
     {
-        std::vector <std::string> file_po_strocam;
+
         std::string stroca;
         while (!file.eof())
         {
@@ -20,15 +20,15 @@ void func1()
             file_po_strocam.push_back(stroca); //вектор строк файла песенки про пчёлок
 
         }
+
     }
+    return file_po_strocam;
 }
-void func2()
+void func2(std::vector <std::string> lines)
 {    if (lines.empty()) {
         std::cout << "Вектор пуст(" << std::endl;
         return;
     }
-
-    std::cout << "Вывод на экран" << std::endl;
     std::cout << "Всего строк: " << lines.size() << std::endl;
     std::cout << "_-_-_-_" << std::endl;
 
@@ -43,8 +43,8 @@ void func3()
 }
 int main()
 {
-    func1();
-    func2();
+    std::vector<std::string> file_po_strocam = func1();
+    func2(file_po_strocam);
     func3();
     std::cout << "Hello World!" << std::endl;
     return 0;
